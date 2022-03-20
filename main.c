@@ -2,3 +2,4 @@
 
 main()
 int nasiPadang;
+int NasiKedua;
