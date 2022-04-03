@@ -17,7 +17,7 @@ float median (int mahasiswa[], int arraysize){
 	return med;
 	}
 	else{
-		float med = (float)(mahasiswa[arraysize/2]);
+		float med = (float)(mahasiswa[arraysize/2]+1);
 		return med;
 	}
 }
