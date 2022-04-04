@@ -68,21 +68,26 @@ int menu() {
 
     	switch(option){
         case 1 :
-            OpsiPemeringkatan(); 
-            return 1;
+		OpsiPemeringkatan();
+		return 1;
+		break;
         case 2 :
-            OpsiStatistikNilai(); 
-            return 1;
+		OpsiStatistikNilai();
+		return 1;
+		break;
         case 3 :
-            CariNomorAbsen(); 
-            return 1;
+		CariNomorAbsen(); 
+		return 1;
+		break;
         case 4 :
-            return 0;
-		default :
-			printf("Pilihan invalid!\n");
+        	return 0;
+		break;
+	default :
+		printf("Pilihan invalid!\n");
         	system("PAUSE");
+		break;
     	}
     
-    } while(option < 1 || option > 4);
+    } while(option != 4);
 
 }
