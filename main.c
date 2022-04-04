@@ -3,7 +3,7 @@
 #indlude <time.h>
 #include "statistik.h"
 
-main()
+int main(){
 	int array[70];
 	int i, num, a = 75, b = 100, j;
 	int SIZE = sizeof(array)/sizeof(array[0]);
