@@ -5,10 +5,10 @@ float mean (int mahasiswa[], int arraysize){
 		int i, n;
 	float ave;
 	
-	for(i; i < b; i++){
-		n += a[i];
+	for(i; i < arraysize; i++){
+		n += mahasiswa[i];
 	}
-	ave = (float) n / b;
+	ave = (float) n / arraysize;
 	return ave;
 }
 float median (int mahasiswa[], int arraysize){
@@ -24,7 +24,7 @@ float median (int mahasiswa[], int arraysize){
 float modus (int mahasiswa[], int arraysize){
 	int i, j;
 	int count = 0, count2 = 0;
-	float mod
+	float mod;
 	
 	for(i = 0; i < arraysize; i++){
 		count2 = 0;
