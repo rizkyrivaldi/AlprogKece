@@ -70,27 +70,100 @@ int menu() {
         scanf("%d", &option);
 
     	switch(option){
-        case 1 :
-		OpsiPemeringkatan();
-		return 1;
-		break;
-        case 2 :
-		OpsiStatistikNilai();
-		return 1;
-		break;
-        case 3 :
-		CariNomorAbsen(); 
-		return 1;
-		break;
-        case 4 :
-        	return 0;
-		break;
-	default :
-		printf("Pilihan invalid!\n");
-        	system("PAUSE");
-		break;
+        	case 1 :
+			Pemeringkatan();
+			return 1;
+			break;
+        	case 2 :
+			StatistikNilai();
+			return 1;
+			break;
+        	case 3 :
+			CariNomorAbsen(); 
+			return 1;
+			break;
+        	case 4 :
+        		return 0;
+			break;
+		default :
+			printf("Pilihan invalid!\n");
+        		system("PAUSE");
+			break;
     	}
     
     } while(option != 4);
 
+}
+
+void Pemeringkatan() {
+	int s;
+	
+	do{
+		system("CLS");
+		printf("Jenis Pemeringkatan Nilai Kelas: \n");
+		printf("\n\t1) Nilai Kuis\n\t2) Nilai UTS\n\t3) Nilai UAS\n\t4) Kembali ke menu");
+		printf("\n\nPilihan Anda >>> ");
+		scanf("%d", &s);
+		
+		switch(s) {
+			case 1 : 
+				//Cari nomor absen untuk cari peringkat nilai KUIS tertinggi
+				return 1;
+				break;
+			case 2 :
+				//Cari nomor absen untuk cari peringkat nilai UTS tertinggi
+				return 2;
+				break;
+			case 3 :
+				//Cari nomor absen untuk cari peringkat nilai UAS tertinggi
+				return 3;
+				break;
+			case 4 :
+				return 0;
+				break;
+			default :
+			printf("Pilihan invalid!\n");
+        		system("PAUSE");
+			break;
+		}
+	} while(s != 4);
+}
+	
+void StatistikNilai() {
+	int s;
+	
+	do{
+		system("CLS");
+		printf("Jenis Statistik Nilai Kelas: \n");
+		printf("\n\t1) Nilai Kuis\n\t2) Nilai UTS\n\t3) Nilai UAS\n\t4)Nilai Akhir\n\t5) Kembali ke menu");
+		printf("\n\nPilihan Anda >>> ");
+		scanf("%d", &s);
+		
+		switch(s) {
+			case 1 :
+				//Print hasil mean, median, modus untuk nila iKUIS
+				return 1;
+				break;
+			case 2 :
+				//Print hasil mean, median, modus untuk nilai UTS
+				return 2;
+				break;
+			case 3 :
+				//Print hasil mean, median, modus untuk nilai UAS
+				return 3;
+				break;
+			case 4 :
+				//Print tabel nomor absen beserta nilai akhir
+				//Print hasil mean, median, modus untuk nilai akhir
+				return 4;
+				break;
+			case 5 :
+				return 0;
+				break;
+			default :
+			printf("Pilihan invalid!\n");
+        		system("PAUSE");
+			break;
+		}
+	} while (s != 5)
 }
