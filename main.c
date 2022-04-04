@@ -141,7 +141,7 @@ void StatistikNilai() {
 		
 		switch(s) {
 			case 1 :
-				//Print hasil mean, median, modus untuk nila iKUIS
+				//Print hasil mean, median, modus untuk nilai iKUIS
 				return 1;
 				break;
 			case 2 :
