@@ -72,6 +72,11 @@ int menu(int ABSEN[], int NILAI[][3], int arraySize) {
 	
     do{
         system("CLS");
+	printf("Program ini akan menyortir seluruh nilai mahasiswa yang mencakup KUIS, UTS, dan UAS dengan beberapa pilihan metode.\n");
+	printf("\nPilihan pertama akan melakukan pemeringkatan nilai mahasiswa berdasarkan jenis ujiannya dengan metode bubble sort.\n");
+	printf("\nPilihan kedua akan menampilkan statistik nilai mahasiswa yang meliputi mean, modus, dan median.\n");
+	printf("\nPilihan ketiga akan melakukan pencarian nomor absen untuk mengetahui nilai mahasiswa tersebut.\n");
+	printf("\nPilihan keempat akan mengakhiri program.\n\n");
         printf("Pilihan Menu: \n");
         printf("\n\t1) Pemeringkatan Mahasiswa\n\t2) Statistik Nilai Kelas\n\t3) Cari Nomor Absen\n\t4) Keluar");
         printf("\n\nPilihan Anda >>> ");
@@ -121,7 +126,9 @@ void Pemeringkatan(int ABSEN[], int NILAI[][3], int arraySize) {
 	
 	do{
 		system("CLS");
-		printf("Jenis Pemeringkatan Nilai Kelas: \n");
+		printf("Pilihlah salah satu dari ketiga jenis pemeringkatan yang diinginkan dengan menginput angka 1, 2, atau 3.\n");
+		printf("\nInput angka 4 untuk mengakhiri program.\n");
+		printf("\n\nJenis Pemeringkatan Nilai Kelas: \n");
 		printf("\n\t1) Nilai Kuis\n\t2) Nilai UTS\n\t3) Nilai UAS\n\t4) Kembali ke menu");
 		printf("\n\nPilihan Anda >>> ");
 
@@ -141,18 +148,21 @@ void Pemeringkatan(int ABSEN[], int NILAI[][3], int arraySize) {
 		switch(option) {
 			case 1 : 
 				//Cari nomor absen untuk cari peringkat nilai KUIS tertinggi
+				printf("Hasil pemeringkatan nilai KUIS.\n\n");
 				sortNilai(ABSEN, NILAI, arraySize, 0);
 				printTabel(ABSEN, NILAI, arraySize);
 				sortAbsen(ABSEN, NILAI, arraySize);
 				break;
 			case 2 :
 				//Cari nomor absen untuk cari peringkat nilai UTS tertinggi
+				printf("Hasil pemeringkatan nilai UTS.\n\n");
 				sortNilai(ABSEN, NILAI, arraySize, 1);
 				printTabel(ABSEN, NILAI, arraySize);
 				sortAbsen(ABSEN, NILAI, arraySize);
 				break;
 			case 3 :
 				//Cari nomor absen untuk cari peringkat nilai UAS tertinggi
+				printf("Hasil pemeringkatan nilai UAS.\n\n");
 				sortNilai(ABSEN, NILAI, arraySize, 2);
 				printTabel(ABSEN, NILAI, arraySize);
 				sortAbsen(ABSEN, NILAI, arraySize);
@@ -173,7 +183,9 @@ void StatistikNilai(int ABSEN[], int NILAI[][3], int arraySize) {
 	
 	do{
 		system("CLS");
-		printf("Jenis Statistik Nilai Kelas: \n");
+		printf("Pilihlah salah satu dari ketiga jenis statistik nilai kelas yang diinginkan dengan menginput angka 1, 2, atau 3\n");
+		printf("\nInput angka 4 untuk mengakhiri program.\n");
+		printf("\n\nJenis Statistik Nilai Kelas: \n");
 		printf("\n\t1) Nilai Kuis\n\t2) Nilai UTS\n\t3) Nilai UAS\n\t4) Kembali ke menu");
 		printf("\n\nPilihan Anda >>> ");
 
@@ -193,6 +205,7 @@ void StatistikNilai(int ABSEN[], int NILAI[][3], int arraySize) {
 		switch(option) {
 			case 1 :
 				//Print hasil mean, median, modus untuk nilai KUIS
+				printf("Hasil kalkulasi mean, median dan modus untuk nilai KUIS.\n\n");
 				sortNilai(ABSEN, NILAI, arraySize, 0);
 				printf("\n Nilai KUIS:");
 				printf("\n mean: %.2f", mean(NILAI, arraySize, 0));
@@ -204,6 +217,7 @@ void StatistikNilai(int ABSEN[], int NILAI[][3], int arraySize) {
 				break;
 			case 2 :
 				//Print hasil mean, median, modus untuk nilai UTS
+				printf("Hasil kalkulasi mean, median dan modus untuk nilai UTS.\n\n");
 				sortNilai(ABSEN, NILAI, arraySize, 1);
 				printf("\n Nilai UTS:");
 				printf("\n mean: %.2f", mean(NILAI, arraySize, 1));
@@ -215,6 +229,7 @@ void StatistikNilai(int ABSEN[], int NILAI[][3], int arraySize) {
 				break;
 			case 3 :
 				//Print hasil mean, median, modus untuk nilai UAS
+				printf("Hasil kalkulasi mean, median dan modus untuk nilai UAS.\n\n");
 				sortNilai(ABSEN, NILAI, arraySize, 2);
 				printf("\n Nilai UAS:");
 				printf("\n mean: %.2f", mean(NILAI, arraySize, 2));
@@ -243,7 +258,9 @@ void cariNomorAbsen(int ABSEN[], int NILAI[][3], int arraySize){
 
 	do{
 		system("CLS");
-		printf("Mencari nilai dari nomor absen mahasiswa: \n1.) Cari nomor absen mahasiswa\n2.) Kembali ke menu");
+		printf("Input angka 1 agar program melakukan pencarian nomor absen tiap mahasiswa.\n");
+		printf("\nInput angka 2 untuk mengakhiri program.\n");
+		printf("\nMencari nilai dari nomor absen mahasiswa: \n1.) Cari nomor absen mahasiswa\n2.) Kembali ke menu");
 		printf("\n\nPilihan Anda >>> ");
 
 		do{
