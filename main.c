@@ -6,6 +6,8 @@
 #include "statistik.h"
 
 int menu();
+void Pemeringkatan();
+float StatistikNilai();
 
 int main() {
 
@@ -96,16 +98,16 @@ int menu() {
 }
 
 void Pemeringkatan() {
-	int s;
+	int option;
 	
 	do{
 		system("CLS");
 		printf("Jenis Pemeringkatan Nilai Kelas: \n");
 		printf("\n\t1) Nilai Kuis\n\t2) Nilai UTS\n\t3) Nilai UAS\n\t4) Kembali ke menu");
 		printf("\n\nPilihan Anda >>> ");
-		scanf("%d", &s);
+		scanf("%d", &option);
 		
-		switch(s) {
+		switch(option) {
 			case 1 : 
 				//Cari nomor absen untuk cari peringkat nilai KUIS tertinggi
 				return 1;
@@ -122,26 +124,27 @@ void Pemeringkatan() {
 				return 0;
 				break;
 			default :
-			printf("Pilihan invalid!\n");
-        		system("PAUSE");
+				printf("Pilihan invalid!\n");
+        			system("PAUSE");
 			break;
 		}
-	} while(s != 4);
+	} while(option != 4);
 }
 	
-void StatistikNilai() {
-	int s;
+float StatistikNilai() {
+	int option;
 	
 	do{
 		system("CLS");
 		printf("Jenis Statistik Nilai Kelas: \n");
 		printf("\n\t1) Nilai Kuis\n\t2) Nilai UTS\n\t3) Nilai UAS\n\t4)Nilai Akhir\n\t5) Kembali ke menu");
 		printf("\n\nPilihan Anda >>> ");
-		scanf("%d", &s);
+		scanf("%d", &option);
 		
-		switch(s) {
+		switch(option) {
 			case 1 :
-				//Print hasil mean, median, modus untuk nilai iKUIS
+				//Print hasil mean, median, modus untuk nilai KUIS
+				printf("\n Nilai KUIS: \n mean: %f", mean(//bocil)
 				return 1;
 				break;
 			case 2 :
@@ -161,9 +164,9 @@ void StatistikNilai() {
 				return 0;
 				break;
 			default :
-			printf("Pilihan invalid!\n");
-        		system("PAUSE");
+				printf("Pilihan invalid!\n");
+        			system("PAUSE");
 			break;
 		}
-	} while (s != 5)
+	} while (option != 5)
 }
