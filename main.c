@@ -7,16 +7,14 @@
 
 int menu();
 void Pemeringkatan();
-float StatistikNilai();
+float StatistikNilai(int mahasiswa[][3], int arraysize);
 
 int main() {
 
 	int NILAI[30][3];
 	int *grade = (int *)NILAI;
-	int KUIS[30], UTS[30], UAS[30];
 	int i, j;
-	int num, a = 75, b = 100, j;
-	int SIZE = sizeof(KUIS)/sizeof(KUIS[0]);
+	int a = 75, b = 100, j;
 	int recurse;
 	
 	do{
@@ -46,13 +44,12 @@ int main() {
 	
 		for( i = 0; i < SIZE; i++){
 				for(j = 0; j < 3; j++){
-			num = (rand() % (b - a + 1)) + a;
-			NILAI[i][j] = num;
+			NILAI[i][j] = (rand() % (b - a + 1)) + a;
 		}
 		KUIS[i] = grade[3*i];
 		UTS[i] = grade[3*i + 1];
 		UAS[i] = grade[3*i + 2];
-		printf("\t%d\t||\t  %d\t\t||\t  %d\t\t||\t  %d\t\t||\n", i+1, KUIS[i], UTS[i], UAS[i]);
+		printf("\t%d\t||\t  %d\t\t||\t  %d\t\t||\t  %d\t\t||\n", i+1, grade[3*i], grade[3*i + 1], grade[3*i + 2]);
 		}
 		
 		recurse = menu();
@@ -131,7 +128,7 @@ void Pemeringkatan() {
 	} while(option != 4);
 }
 	
-float StatistikNilai() {
+float StatistikNilai(int mahasiswa[][3], int arraysize) {
 	int option;
 	
 	do{
@@ -144,15 +141,26 @@ float StatistikNilai() {
 		switch(option) {
 			case 1 :
 				//Print hasil mean, median, modus untuk nilai KUIS
-				printf("\n Nilai KUIS: \n mean: %f", mean(//bocil)
+				printf("\n Nilai KUIS:");
+				printf("\n mean: %.2f", mean(mahasiswa[][0], arraysize/3));
+				printf("\n median: %.2f", median(mahasiswa[][0], arraysize/3));
+				printf("\n modus: %.2f", modus(mahasiswa[][0], arraysize/3));
 				return 1;
 				break;
 			case 2 :
 				//Print hasil mean, median, modus untuk nilai UTS
+				printf("\n Nilai UTS:");
+				printf("\n mean: %.2f", mean(mahasiswa[][1], arraysize/3));
+				printf("\n median: %.2f", median(mahasiswa[][1], arraysize/3));
+				printf("\n modus: %.2f", modus(mahasiswa[][1], arraysize/3));
 				return 2;
 				break;
 			case 3 :
 				//Print hasil mean, median, modus untuk nilai UAS
+				printf("\n Nilai UAS:");
+				printf("\n mean: %.2f", mean(mahasiswa[][2], arraysize/3));
+				printf("\n median: %.2f", median(mahasiswa[][2], arraysize/3));
+				printf("\n modus: %.2f", modus(mahasiswa[][2], arraysize/3));
 				return 3;
 				break;
 			case 4 :
