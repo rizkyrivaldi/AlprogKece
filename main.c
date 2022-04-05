@@ -46,9 +46,6 @@ int main() {
 				for(j = 0; j < 3; j++){
 			NILAI[i][j] = (rand() % (b - a + 1)) + a;
 		}
-		KUIS[i] = grade[3*i];
-		UTS[i] = grade[3*i + 1];
-		UAS[i] = grade[3*i + 2];
 		printf("\t%d\t||\t  %d\t\t||\t  %d\t\t||\t  %d\t\t||\n", i+1, grade[3*i], grade[3*i + 1], grade[3*i + 2]);
 		}
 		
