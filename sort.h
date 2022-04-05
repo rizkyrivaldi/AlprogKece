@@ -1,41 +1,53 @@
-void sortKuis(int mahasiswa[][3], int arraysize){
+void sortNilai(int absen[], int mahasiswa[][3], int arraySize, int type){
     int temp, i, j;
-    int type = 0;
-    for(i = 0; i < arraysize; i++){
-        for(j = 0; j < arraysize - i - 1; j++){
-            if(mahasiswa[type][j] > mahasiswa[type][j+1]){
-                temp = mahasiswa[type][j];
-                mahasiswa[type][j] = mahasiswa[type][j+1];
-                mahasiswa[type][j+1] = temp;
+    for(i = 0; i < arraySize; i++){
+        for(j = 0; j < arraySize - i - 1; j++){
+            if(mahasiswa[j][type] < mahasiswa[j+1][type]){
+
+                //sort nomor absen, nilai kuis, nilai uts, dan nilai uas
+                temp = absen[j];
+                absen[j] = absen[j+1];
+                absen[j+1] = temp;
+
+                temp = mahasiswa[j][0];
+                mahasiswa[j][0] = mahasiswa[j+1][0];
+                mahasiswa[j+1][0] = temp;
+
+                temp = mahasiswa[j][1];
+                mahasiswa[j][1] = mahasiswa[j+1][1];
+                mahasiswa[j+1][1] = temp;
+
+                temp = mahasiswa[j][2];
+                mahasiswa[j][2] = mahasiswa[j+1][2];
+                mahasiswa[j+1][2] = temp;
             }
         }
     }
 }
 
-void sortUTS(int mahasiswa[][3], int arraysize){
+void sortAbsen(int absen[], int mahasiswa[][3], int arraySize){
     int temp, i, j;
-    int type = 1;
-    for(i = 0; i < arraysize; i++){
-        for(j = 0; j < arraysize - i - 1; j++){
-            if(mahasiswa[type][j] > mahasiswa[type][j+1]){
-                temp = mahasiswa[type][j];
-                mahasiswa[type][j] = mahasiswa[type][j+1];
-                mahasiswa[type][j+1] = temp;
-            }
-        }
-    }
-}
+    for(i = 0; i < arraySize; i++){
+        for(j = 0; j < arraySize - i - 1; j++){
+            if(absen[j] > absen[j+1]){
 
-void sortUAS(int mahasiswa[][3], int arraysize){
-    int temp, i, j;
-    int type = 2;
-    for(i = 0; i < arraysize; i++){
-        for(j = 0; j < arraysize - i - 1; j++){
-            if(mahasiswa[type][j] > mahasiswa[type][j+1]){
-                temp = mahasiswa[type][j];
-                mahasiswa[type][j] = mahasiswa[type][j+1];
-                mahasiswa[type][j+1] = temp;
+                //sort nomor absen, nilai kuis, nilai uts, dan nilai uas
+                temp = absen[j];
+                absen[j] = absen[j+1];
+                absen[j+1] = temp;
+
+                temp = mahasiswa[j][0];
+                mahasiswa[j][0] = mahasiswa[j+1][0];
+                mahasiswa[j+1][0] = temp;
+
+                temp = mahasiswa[j][1];
+                mahasiswa[j][1] = mahasiswa[j+1][1];
+                mahasiswa[j+1][1] = temp;
+
+                temp = mahasiswa[j][2];
+                mahasiswa[j][2] = mahasiswa[j+1][2];
+                mahasiswa[j+1][2] = temp;
             }
         }
-    }
+    } 
 }
