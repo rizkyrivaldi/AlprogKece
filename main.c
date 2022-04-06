@@ -12,6 +12,8 @@ void Pemeringkatan(int ABSEN[], int NILAI[][3], int arraySize);
 void StatistikNilai(int ABSEN[], int NILAI[][3], int arraySize);
 void printTabel(int ABSEN[], int NILAI[][3], int arraySize);
 void cariNomorAbsen(int ABSEN[], int NILAI[][3], int arraySize);
+void panduanMenu();
+void welcomeScreen(int delay);
 
 int main() {
 
@@ -32,22 +34,8 @@ int main() {
 	
 	do{
 		system("CLS");
-		char title[37] = "==== CLASS GRADE SORTING SYSTEM ====";
-        	char desc[33] = "\nSelamat datang di program ini!\n";
-        
-        for(i = 0; i < 37; i++){
-            Sleep(10);
-            printf("%c", title[i]);
-        }
-
-        printf("\n");
 		
-        for(i = 0; i < 33; i++){
-            Sleep(10);
-            printf("%c", desc[i]);
-        }
-
-        printf("\n");
+		welcomeScreen(10);
         
         printf("Berikut Tabel Data Nilai Mahasiswa:\n");
 		system("PAUSE");
@@ -73,11 +61,7 @@ int menu(int ABSEN[], int NILAI[][3], int arraySize) {
 	
     do{
         system("CLS");
-	printf("Program ini akan menyortir seluruh nilai mahasiswa yang mencakup KUIS, UTS, dan UAS dengan beberapa pilihan metode.\n");
-	printf("\nPilihan pertama akan melakukan pemeringkatan nilai mahasiswa berdasarkan jenis ujiannya dengan metode bubble sort.\n");
-	printf("\nPilihan kedua akan menampilkan statistik nilai mahasiswa yang meliputi mean, modus, dan median.\n");
-	printf("\nPilihan ketiga akan melakukan pencarian nomor absen untuk mengetahui nilai mahasiswa tersebut.\n");
-	printf("\nPilihan keempat akan mengakhiri program.\n\n");
+		panduanMenu();
         printf("Pilihan Menu: \n");
         printf("\n\t1) Pemeringkatan Mahasiswa\n\t2) Statistik Nilai Kelas\n\t3) Cari Nomor Absen\n\t4) Keluar");
         printf("\n\nPilihan Anda >>> ");
@@ -331,4 +315,32 @@ void printTabel(int ABSEN[], int NILAI[][3], int arraySize){
 		printf("\t%d\t||\t  %d\t\t||\t  %d\t\t||\t  %d\t\t||\n", ABSEN[i], NILAI[i][0], NILAI[i][1], NILAI[i][2]);
 	}
 	system("PAUSE");
+}
+
+void panduanMenu(){
+	printf("Program ini akan menyortir seluruh nilai mahasiswa yang mencakup KUIS, UTS, dan UAS dengan beberapa pilihan metode.\n");
+	printf("\nPilihan pertama akan melakukan pemeringkatan nilai mahasiswa berdasarkan jenis ujiannya dengan metode bubble sort.\n");
+	printf("\nPilihan kedua akan menampilkan statistik nilai mahasiswa yang meliputi mean, modus, dan median.\n");
+	printf("\nPilihan ketiga akan melakukan pencarian nomor absen untuk mengetahui nilai mahasiswa tersebut.\n");
+	printf("\nPilihan keempat akan mengakhiri program.\n\n");
+}
+
+void welcomeScreen(int delay){
+	int i;
+	char title[37] = "==== CLASS GRADE SORTING SYSTEM ====";
+    char desc[33] = "\nSelamat datang di program ini!\n";
+        
+	for(i = 0; i < 37; i++){
+		Sleep(delay);
+		printf("%c", title[i]);
+	}
+
+	printf("\n");
+	
+	for(i = 0; i < 33; i++){
+		Sleep(delay);
+		printf("%c", desc[i]);
+	}
+
+	printf("\n");
 }
