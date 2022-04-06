@@ -64,6 +64,7 @@ int main() {
 		
 	} while(recurse == 1);
 
+	return 0;
 }
 
 int menu(int ABSEN[], int NILAI[][3], int arraySize) {
