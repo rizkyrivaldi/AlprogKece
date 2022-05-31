@@ -1,25 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "struct.h"
+#include "listUtils.h"
 #include "menu.h"
 
-#define jumlahMahasiswa 30
-
 int main() {
+	//Inisialisasi jumlah mahasiswa awal
+	int jumlahMahasiswa = 30;
 
-	int ABSEN[jumlahMahasiswa];
-	int NILAI[jumlahMahasiswa][3];
+	//Inisialisasi pointer head address
+	MAHASISWA *headAddr = NULL;
+
+	//Inisialisasi lainnya
 	int i, j;
 	int nilaiMin = 75, nilaiMax = 100;
 	int recurse;
 
+	//Random seed
 	srand(time(0));
 
+	//Memasukkan nilai secara random ke setiap mahasiswa
 	for( i = 0; i < jumlahMahasiswa; i++){
-		ABSEN[i] = i+1;
-		for(j = 0; j < 3; j++){
-			NILAI[i][j] = (rand() % (nilaiMax - nilaiMin + 1)) + nilaiMin;
-		}
+		int kuis = (rand() % (nilaiMax - nilaiMin + 1)) + nilaiMin;
+		int uts = (rand() % (nilaiMax - nilaiMin + 1)) + nilaiMin;
+		int uas = (rand() % (nilaiMax - nilaiMin + 1)) + nilaiMin;
+		addToList(&headAddr, i+1, kuis, uts, uas);
 	}
 	
 	do{
@@ -30,17 +36,15 @@ int main() {
         printf("Berikut Tabel Data Nilai Mahasiswa:\n");
 		system("PAUSE");
 	
-		printf(" No. Absen\t||\t Nilai KUIS\t||\t Nilai UTS\t||\t Nilai UAS\t||\n");
-	
-		for( i = 0; i < jumlahMahasiswa; i++){
-			printf("\t%d\t||\t  %d\t\t||\t  %d\t\t||\t  %d\t\t||\n", ABSEN[i], NILAI[i][0], NILAI[i][1], NILAI[i][2]);
-		}
+		showDefaultTable(headAddr);
 		
 		system("PAUSE");
 
-		recurse = menu(ABSEN, NILAI, jumlahMahasiswa);
+		recurse = menu(&headAddr, &jumlahMahasiswa);
 		
 	} while(recurse == 1);
+
+	freeList(&headAddr);
 
 	return 0;
 }

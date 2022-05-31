@@ -1,53 +1,91 @@
-void sortNilai(int absen[], int mahasiswa[][3], int arraySize, int type){
-    int temp, i, j;
-    for(i = 0; i < arraySize; i++){
-        for(j = 0; j < arraySize - i - 1; j++){
-            if(mahasiswa[j][type] < mahasiswa[j+1][type]){
+#include "struct.h"
 
-                //sort nomor absen, nilai kuis, nilai uts, dan nilai uas
-                temp = absen[j];
-                absen[j] = absen[j+1];
-                absen[j+1] = temp;
-
-                temp = mahasiswa[j][0];
-                mahasiswa[j][0] = mahasiswa[j+1][0];
-                mahasiswa[j+1][0] = temp;
-
-                temp = mahasiswa[j][1];
-                mahasiswa[j][1] = mahasiswa[j+1][1];
-                mahasiswa[j+1][1] = temp;
-
-                temp = mahasiswa[j][2];
-                mahasiswa[j][2] = mahasiswa[j+1][2];
-                mahasiswa[j+1][2] = temp;
+void sortNilai(MAHASISWA **headAddr, int type){
+    int isSorted;
+    MAHASISWA *lastAddr;
+    MAHASISWA *iteratorAddr;
+    MAHASISWA *nextAddr;
+    if(*headAddr == NULL){
+        printf("List is empty!");
+        return;
+    }
+    else if(type == 0){
+        lastAddr = NULL;
+        do{
+            isSorted = 1;
+            iteratorAddr = *headAddr;
+            
+            while((*iteratorAddr).ptr != lastAddr){
+                nextAddr = (*iteratorAddr).ptr;
+                if((*iteratorAddr).kuis < (*nextAddr).kuis){
+                    swapElement(iteratorAddr, nextAddr);
+                    isSorted = 0;
+                }
+                iteratorAddr = nextAddr;
             }
-        }
+            lastAddr = iteratorAddr;
+        }while(isSorted == 0);
+    }
+    else if(type == 1){
+        lastAddr = NULL;
+        do{
+            isSorted = 1;
+            iteratorAddr = *headAddr;
+            
+            while((*iteratorAddr).ptr != lastAddr){
+                nextAddr = (*iteratorAddr).ptr;
+                if((*iteratorAddr).uts < (*nextAddr).uts){
+                    swapElement(iteratorAddr, nextAddr);
+                    isSorted = 0;
+                }
+                iteratorAddr = nextAddr;
+            }
+            lastAddr = iteratorAddr;
+        }while(isSorted == 0);
+    }
+    else if(type == 2){
+        lastAddr = NULL;
+        do{
+            isSorted = 1;
+            iteratorAddr = *headAddr;
+            
+            while((*iteratorAddr).ptr != lastAddr){
+                nextAddr = (*iteratorAddr).ptr;
+                if((*iteratorAddr).uas < (*nextAddr).uas){
+                    swapElement(iteratorAddr, nextAddr);
+                    isSorted = 0;
+                }
+                iteratorAddr = nextAddr;
+            }
+            lastAddr = iteratorAddr;
+        }while(isSorted == 0);
     }
 }
 
-void sortAbsen(int absen[], int mahasiswa[][3], int arraySize){
-    int temp, i, j;
-    for(i = 0; i < arraySize; i++){
-        for(j = 0; j < arraySize - i - 1; j++){
-            if(absen[j] > absen[j+1]){
-
-                //sort nomor absen, nilai kuis, nilai uts, dan nilai uas
-                temp = absen[j];
-                absen[j] = absen[j+1];
-                absen[j+1] = temp;
-
-                temp = mahasiswa[j][0];
-                mahasiswa[j][0] = mahasiswa[j+1][0];
-                mahasiswa[j+1][0] = temp;
-
-                temp = mahasiswa[j][1];
-                mahasiswa[j][1] = mahasiswa[j+1][1];
-                mahasiswa[j+1][1] = temp;
-
-                temp = mahasiswa[j][2];
-                mahasiswa[j][2] = mahasiswa[j+1][2];
-                mahasiswa[j+1][2] = temp;
+void sortAbsen(MAHASISWA **headAddr){
+    int isSorted;
+    MAHASISWA *lastAddr;
+    MAHASISWA *iteratorAddr;
+    MAHASISWA *nextAddr;
+    if(*headAddr == NULL){
+        printf("List is empty!");
+        return;
+    }
+    else{
+        lastAddr = NULL;
+        do{
+            isSorted = 1;
+            iteratorAddr = *headAddr;
+            
+            while((*iteratorAddr).ptr != lastAddr){
+                nextAddr = (*iteratorAddr).ptr;
+                if((*iteratorAddr).no > (*nextAddr).no){
+                    swapElement(iteratorAddr, nextAddr);
+                    isSorted = 0;
+                }
+                iteratorAddr = nextAddr;
             }
-        }
+            lastAddr = iteratorAddr;
+        }while(isSorted == 0);
     } 
 }

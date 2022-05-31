@@ -10,7 +10,8 @@ int sequentialSearch(int mahasiswa[][3], int arraysize, int value, int type){
 
 int binarySearch(int mahasiswa[], int lowerIndex, int upperIndex, int dicari){
     if (upperIndex >= lowerIndex){
-        int middle = (upperIndex + (upperIndex - lowerIndex)) / 2;
+        int middle;
+        middle = lowerIndex + ((upperIndex - lowerIndex) / 2);
 
         if(mahasiswa[middle] == dicari){
             return middle;
