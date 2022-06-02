@@ -400,6 +400,6 @@ int menu(MAHASISWA **headAddr, int *jumlahMahasiswa) {
 			break;
     	}
     
-    } while(option != 4);
+    } while(option != 5);
 
 }
